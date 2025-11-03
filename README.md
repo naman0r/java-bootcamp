@@ -36,4 +36,46 @@
 	- gRPC generally performs better than REST. should use this for the next project i do
 
 
+- BigQuery, Snowflake:
+	- bigquery is a serverless, managed data warehouse that runs on GCP
+ - so i think it is just like a sql store but for really big data? interesting
+ - Snowflake is a cloud native data warehouse that runs on AWS, Azure or GCP.
+ - you manage warehouses (essentially compute clusters) that you can scale up or down as needed (highly scalabile like microservices)
+
+
+-**Kubernetes, Helm, Istio, Docker**: 
+- docker is for containerization (put your app in a box), runs everywhere tge same way I have written Dockerfiles before
+```
+example:
+FROM python:3.10
+COPY ./app
+WORKDIR /app
+RUN pip install -r requirements.txt
+CMD ["python", "app.py"]
+```
+`docker build -r myapp . `
+`docker run -p 5000:5000 myapp`
+
+- K8s: Run thousands of boxes at scale
+- kubernetes is a container orchestration system, it manager how and where docker containers run of a cluster of machines. it decides whatruns where, when to scale up or down, load balancing, etc.
+- kubernetes helps with microservice architecture, scaling, and orchestration of containers, works in tandem with docker
+
+- Helm is an app store and a config manager for kubernetes. it is like npm or pip for kubernetes apps
+- Istio is traffic control and a security layer for microservices
+
+```
+Developer builds app
+   ↓
+Docker → packages it into a container
+   ↓
+Kubernetes → runs and manages containers in production
+   ↓
+Helm → simplifies deploying/managing Kubernetes configs
+   ↓
+Istio → manages how containers talk to each other (network, security, telemetry)
+
+```
+- jenkins: helps automate building code, running tests, packaging, and deploying to servers or cloud infrastructures.
+- 
+
 
